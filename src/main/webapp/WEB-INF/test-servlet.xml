@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:websocket="http://www.springframework.org/schema/websocket"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/websocket
+    http://www.springframework.org/schema/websocket/spring-websocket-4.0.xsd">
+
+  <context:component-scan base-package="org.jfu.test.spring4.web.controller" />
+  <mvc:annotation-driven />
+  <mvc:resources location="/img/" mapping="/img/**"/>
+
+  <!--
+  <bean id="blockDirective"
+    class="cn.org.rapid_framework.freemarker.directive.BlockDirective" />
+
+  <bean id="overrideDirective"
+    class="cn.org.rapid_framework.freemarker.directive.OverrideDirective" />
+
+  <bean id="extendsDirective"
+    class="cn.org.rapid_framework.freemarker.directive.ExtendsDirective" />
+
+  <bean id="superDirective"
+    class="cn.org.rapid_framework.freemarker.directive.SuperDirective" />
+
+  <bean id="freemarkerConfig"
+    class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+    <property name="templateLoaderPath" value="/WEB-INF/freemarker/" />
+    <property name="freemarkerVariables">
+      <map>
+        <entry key="extends" value-ref="extendsDirective"/>
+        <entry key="override" value-ref="overrideDirective"/>
+        <entry key="super" value-ref="superDirective"/>
+        <entry key="block" value-ref="blockDirective"/>
+      </map>
+    </property>
+    <property name="freemarkerSettings">
+      <props>
+        <prop key="classic_compatible">true</prop>
+        <prop key="number_format">0.##</prop>
+        <prop key="localized_lookup">false</prop>
+        <prop key="default_encoding">UTF-8</prop>
+        <prop key="whitespace_stripping">true</prop>
+        <prop key="url_escaping_charset">UTF-8</prop>
+        <prop key="template_update_delay">3600</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="viewResolver"
+    class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+    <property name="contentType" value="text/html;charset=UTF-8"/>
+    <property name="cache" value="true" />
+    <property name="prefix" value="" />
+    <property name="suffix" value=".ftl" />
+    <property name="exposeRequestAttributes" value="true"/>
+    <property name="exposeSessionAttributes" value="true"/>
+    <property name="requestContextAttribute" value="rc"/>
+  </bean>
+  -->
+
+  <!--
+  <websocket:message-broker application-destination-prefix="/app">
+    <websocket:stomp-endpoint path="/hello">
+      <websocket:sockjs/>
+    </websocket:stomp-endpoint>
+    <websocket:simple-broker prefix="/topic"/>
+  </websocket:message-broker>
+  -->
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+      <property name="prefix" value="/WEB-INF/jsp/"/>
+      <property name="suffix" value=".jsp"/>
+      <property name="contentType" value="text/html;charset=UTF-8"/>
+  </bean>
+</beans>
