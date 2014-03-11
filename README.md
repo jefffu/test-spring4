@@ -8,4 +8,4 @@ This project has two goals,
 
 ## License
 
-This project is available under the terms of the [Apache V2 License].
+This project is available under the terms of the [Apache V2 License](http://www.apache.org/licenses/LICENSE-2.0.html).
